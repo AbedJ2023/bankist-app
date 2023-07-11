@@ -80,6 +80,18 @@ const displayMovements = movements => {
 
 displayMovements(account1.movements);
 
+const createUsernames = accs => {
+  accs.forEach(acc => {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+createUsernames(accounts);
+console.log(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -171,3 +183,38 @@ displayMovements(account1.movements);
 // currenciesUnique.forEach((value, key, map) => {
 //   console.log(`${key}: ${value}`);
 // });
+
+// const checkDogs = (dogsJulia, dogsKate) => {
+//   const juliaDogs = dogsJulia.slice(1, -2);
+//   const allDogsAges = [...juliaDogs, ...dogsKate];
+//   allDogsAges.forEach((age, i) => {
+//     if (age >= 3) {
+//       console.log(`Dog number ${i + 1} is an adult and is ${age} years old`);
+//     } else {
+//       console.log(`Dog number ${i + 1} is a puppy and is ${age} years old`);
+//     }
+//   });
+// };
+
+// checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+// console.log('///////////////');
+// checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
+
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const eurtToUsd = 1.1;
+
+// const movementUSD = movements.map(mov => mov * eurtToUsd);
+
+// console.log(movements);
+// console.log(movementUSD);
+
+// const movements2 = movements.map((mov, i, arr) => {
+//   if (mov > 0) {
+//     return `Movement ${i + 1}: you deposited ${mov}`;
+//   } else {
+//     return `Movement ${i + 1}: you withdrew ${Math.abs(mov)}`;
+//   }
+// });
+
+// console.log(movements2);
