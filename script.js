@@ -78,14 +78,10 @@ const displayMovements = movements => {
   });
 };
 
-displayMovements(account1.movements);
-
 const calcDisplayBalance = movements => {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = `${balance}€`;
 };
-
-calcDisplayBalance(account1.movements);
 
 const calcDisplaySummary = movements => {
   const incomes = movements
@@ -101,15 +97,11 @@ const calcDisplaySummary = movements => {
   const interest = movements
     .filter(mov => mov > 0)
     .map(deposit => (deposit * 1.2) / 100)
-    .filter((int, i, arr) => {
-      console.log(arr);
-      return int >= 1;
-    })
+    .filter(int => int >= 1)
     .reduce((acc, mov) => acc + mov, 0);
 
   labelSumInterest.textContent = `${interest}€`;
 };
-calcDisplaySummary(account1.movements);
 
 const createUsernames = accs => {
   accs.forEach(acc => {
@@ -122,6 +114,31 @@ const createUsernames = accs => {
 };
 
 createUsernames(accounts);
+
+// Event handler
+let currentAccount;
+btnLogin.addEventListener('click', e => {
+  e.preventDefault();
+
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    // Display UI and welcome message
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+    containerApp.style.opacity = 100;
+    // Display movements
+    displayMovements(currentAccount.movements);
+    // display balance
+    calcDisplayBalance(currentAccount.movements);
+    // display summary
+    calcDisplaySummary(currentAccount.movements);
+  }
+});
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -299,3 +316,13 @@ createUsernames(accounts);
 //   .reduce((acc, mov) => acc + mov, 0);
 
 // console.log(totalDepositsUSD);
+
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const firstWithdrawal = movements.find(mov => mov < 0);
+
+// console.log(firstWithdrawal);
+
+// const account = accounts.find(acc => (acc.owner = 'Jessica Davis'));
+
+// console.log(account);
