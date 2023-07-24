@@ -61,9 +61,12 @@ const inputLoanAmount = document.querySelector('.form__input--loan-amount');
 const inputCloseUsername = document.querySelector('.form__input--user');
 const inputClosePin = document.querySelector('.form__input--pin');
 
-const displayMovements = movements => {
+const displayMovements = (movements, sort = false) => {
   containerMovements.innerHTML = '';
-  movements.forEach((mov, i) => {
+
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
+  movs.forEach((mov, i) => {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
     const html = `
     <div class="movements__row">
@@ -204,6 +207,14 @@ btnClose.addEventListener('click', e => {
   }
   inputCloseUsername.value = inputClosePin.value = '';
   inputClosePin.blur();
+});
+
+let sorted = false;
+
+btnSort.addEventListener('click', e => {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
 });
 
 /////////////////////////////////////////////////
@@ -398,3 +409,23 @@ btnClose.addEventListener('click', e => {
 // const anyDeposits = movements.some(mov => mov > 5000);
 
 // console.log(anyDeposits);
+
+// console.log(account4.movements.every(mov => mov > 0));
+
+// const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+
+// console.log(arr.flat());
+
+// const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+// console.log(arrDeep.flat(2));
+
+// const owner = ['Jonas', 'Zack', 'Adam', 'Martha'];
+// console.log(owner.sort());
+// console.log(owner);
+
+// console.log(movements);
+// // console.log(movements.sort());
+
+// const sortedNum = movements.sort((a, b) => a - b);
+
+// console.log(sortedNum);
