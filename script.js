@@ -10,6 +10,19 @@ const account1 = {
   movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
   interestRate: 1.2, // %
   pin: 1111,
+
+  movementsDates: [
+    '2019-11-18T21:31:17.178Z',
+    '2019-12-23T07:42:02.383Z',
+    '2020-01-28T09:15:04.904Z',
+    '2020-04-01T10:17:24.185Z',
+    '2020-05-08T14:11:59.604Z',
+    '2020-05-27T17:01:17.194Z',
+    '2020-07-11T23:36:17.929Z',
+    '2020-07-12T10:51:36.790Z',
+  ],
+  currency: 'EUR',
+  locale: 'pt-PT', // de-DE
 };
 
 const account2 = {
@@ -17,6 +30,19 @@ const account2 = {
   movements: [5000, 3400, -150, -790, -3210, -1000, 8500, -30],
   interestRate: 1.5,
   pin: 2222,
+
+  movementsDates: [
+    '2019-11-01T13:15:33.035Z',
+    '2019-11-30T09:48:16.867Z',
+    '2019-12-25T06:04:23.907Z',
+    '2020-01-25T14:18:46.235Z',
+    '2020-02-05T16:33:06.386Z',
+    '2020-04-10T14:43:26.374Z',
+    '2020-06-25T18:49:59.371Z',
+    '2020-07-26T12:01:20.894Z',
+  ],
+  currency: 'USD',
+  locale: 'en-US',
 };
 
 const account3 = {
@@ -221,211 +247,4 @@ btnSort.addEventListener('click', e => {
 /////////////////////////////////////////////////
 // LECTURES
 
-// const currencies = new Map([
-//   ['USD', 'United States dollar'],
-//   ['EUR', 'Euro'],
-//   ['GBP', 'Pound sterling'],
-// ]);
-
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-/////////////////////////////////////////////////
-
-// let arr = ['a', 'b', 'c', 'd', 'e'];
-
-// console.log(arr.slice(2));
-// console.log(arr.slice(2, 4));
-// console.log(arr.slice(-3, 4));
-// console.log(arr.slice());
-
-// // Splice
-
-// // console.log(arr.splice(2));
-// arr.splice(-1);
-// console.log(arr);
-
-// // reverse
-// arr = ['a', 'b', 'c', 'd', 'e'];
-
-// const arr2 = ['j', 'i', 'h', 'g', 'f'];
-// console.log(arr2.reverse());
-// console.log(arr2);
-
-// // concat
-// const letters = arr.concat(arr2);
-// const letters2 = [...arr, ...arr2];
-// console.log(letters);
-// console.log(letters2);
-
-// // Join
-
-// console.log(letters.join(' - '));
-
-// const arr = [23, 11, 64];
-// console.log(arr[0]);
-// console.log(arr.at(0));
-
-// // getting last element
-// console.log(arr[arr.length - 1]);
-// console.log(arr.slice(-1)[0]);
-// console.log(arr.at(-1));
-
-// console.log('jonas'.at(-1));
-
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-// for (const [i, movement] of movements.entries()) {
-//   if (movement > 0) {
-//     console.log(`Movement ${i + 1}: you deposited ${movement}`);
-//   } else {
-//     console.log(`Movement ${i + 1}: you withdrew ${Math.abs(movement)}`);
-//   }
-// }
-
-// console.log('------ForEach--------');
-
-// movements.forEach((movement, index, array) => {
-//   if (movement > 0) {
-//     console.log(`Movement ${index + 1}: you deposited ${movement}`);
-//   } else {
-//     console.log(`Movement ${index + 1}: you withdrew ${Math.abs(movement)}`);
-//   }
-// });
-
-// const currencies = new Map([
-//   ['USD', 'United States dollar'],
-//   ['EUR', 'Euro'],
-//   ['GBP', 'Pound sterling'],
-// ]);
-
-// currencies.forEach(function (value, key, map) {
-//   console.log(`${key}: ${value}`);
-// });
-
-// const currenciesUnique = new Set(['USD', 'GBP', 'USD', 'EUR', 'EUR']);
-// console.log(currenciesUnique);
-
-// currenciesUnique.forEach((value, key, map) => {
-//   console.log(`${key}: ${value}`);
-// });
-
-// const checkDogs = (dogsJulia, dogsKate) => {
-//   const juliaDogs = dogsJulia.slice(1, -2);
-//   const allDogsAges = [...juliaDogs, ...dogsKate];
-//   allDogsAges.forEach((age, i) => {
-//     if (age >= 3) {
-//       console.log(`Dog number ${i + 1} is an adult and is ${age} years old`);
-//     } else {
-//       console.log(`Dog number ${i + 1} is a puppy and is ${age} years old`);
-//     }
-//   });
-// };
-
-// checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
-// console.log('///////////////');
-// checkDogs([9, 16, 6, 8, 3], [10, 5, 6, 1, 4]);
-
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-// const eurtToUsd = 1.1;
-
-// const movementUSD = movements.map(mov => mov * eurtToUsd);
-
-// console.log(movements);
-// console.log(movementUSD);
-
-// const movements2 = movements.map((mov, i, arr) => {
-//   if (mov > 0) {
-//     return `Movement ${i + 1}: you deposited ${mov}`;
-//   } else {
-//     return `Movement ${i + 1}: you withdrew ${Math.abs(mov)}`;
-//   }
-// });
-
-// console.log(movements2);
-
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-// const max = movements.reduce((acc, mov, i) => {
-//   if (acc > mov) return acc;
-//   else return mov;
-// }, movements[0]);
-// console.log(max);
-// const deposits = movements.filter(mov => {
-//   return mov > 0;
-// });
-
-// const withdrawal = movements.filter(mov => {
-//   return mov < 0;
-// });
-
-// const balance = movements.reduce((acc, cur, i, arr) => {
-//   return acc + cur;
-// }, 0);
-
-// console.log(deposits);
-// console.log(withdrawal);
-// console.log(balance);
-
-// const calcAverageHumanAge = ages => {
-//   const humanAges = ages.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
-//   const adults = humanAges.filter(age => age >= 18);
-//   const average = adults.reduce((acc, age) => acc + age, 0) / adults.length;
-//   console.log(average);
-// };
-
-// const calcAverageHumanAge = ages => {
-//   const average = ages
-//     .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
-//     .filter(age => age >= 18)
-//     .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
-//   console.log(average);
-// };
-
-// calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
-// calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
-
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-// const totalDepositsUSD = movements
-//   .filter(mov => mov > 0)
-//   .map(mov => mov * 1.1)
-//   .reduce((acc, mov) => acc + mov, 0);
-
-// console.log(totalDepositsUSD);
-
-// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
-
-// const firstWithdrawal = movements.find(mov => mov < 0);
-
-// console.log(firstWithdrawal);
-
-// const account = accounts.find(acc => (acc.owner = 'Jessica Davis'));
-
-// console.log(account);
-
-// console.log(movements.includes(-130));
-
-// const anyDeposits = movements.some(mov => mov > 5000);
-
-// console.log(anyDeposits);
-
-// console.log(account4.movements.every(mov => mov > 0));
-
-// const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
-
-// console.log(arr.flat());
-
-// const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
-// console.log(arrDeep.flat(2));
-
-// const owner = ['Jonas', 'Zack', 'Adam', 'Martha'];
-// console.log(owner.sort());
-// console.log(owner);
-
-// console.log(movements);
-// // console.log(movements.sort());
-
-// const sortedNum = movements.sort((a, b) => a - b);
-
-// console.log(sortedNum);
+console.log(23 === 23.0);
