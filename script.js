@@ -127,6 +127,7 @@ const displayMovements = (acc, sort = false) => {
     const displayDate = formatMovementDate(date, acc.locale);
 
     const formattedMov = formatCur(mov, acc.locale, acc.currency);
+
     const html = `
     <div class="movements__row">
       <div class="movements__type movements__type--${type}">${
@@ -276,14 +277,16 @@ btnLoan.addEventListener('click', e => {
   const amount = Math.floor(inputLoanAmount.value);
 
   if (amount > 0 && currentAccount.movements.some(mov => mov >= amount * 0.1)) {
-    // Add movements:
-    currentAccount.movements.push(amount);
+    setTimeout(() => {
+      // Add movements:
+      currentAccount.movements.push(amount);
 
-    // Add transfer date:
-    currentAccount.movementsDates.push(new Date().toISOString());
+      // Add transfer date:
+      currentAccount.movementsDates.push(new Date().toISOString());
 
-    // Update UI:
-    updateUI(currentAccount);
+      // Update UI:
+      updateUI(currentAccount);
+    }, 2500);
   }
   inputLoanAmount.value = '';
   inputLoanAmount.blur();
@@ -367,3 +370,28 @@ btnSort.addEventListener('click', e => {
 //   navigator.language,
 //   new Intl.NumberFormat(navigator.language).format(num)
 // );
+
+// const future = new Date(2037, 10, 19, 15, 23);
+// console.log(+future);
+
+// const calcDaysPassed = (date1, date2) =>
+//   Math.abs(date2 - date1) / (1000 * 60 * 60 * 24);
+
+// const day1 = calcDaysPassed(new Date(2037, 3, 14), new Date(2037, 3, 4));
+
+// console.log(day1);
+// const ingredients = ['olives', 'spinach'];
+// const pizzaTimer = setTimeout(
+//   (ing1, ing2) => console.log(`here is your pizza with ${ing1} and ${ing2}`),
+//   3000,
+//   ...ingredients
+// );
+
+// console.log('waiting...');
+
+// if (ingredients.includes('spinach')) clearTimeout(pizzaTimer);
+
+// setInterval(() => {
+//   const now = new Date();
+//   console.log(now);
+// }, 1000);
